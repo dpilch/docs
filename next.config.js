@@ -6,26 +6,6 @@ const mdxRenderer = `
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const directory = require('./src/directory/directory.js');
 
-
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-
-// module.exports = withMDX({
-//   pageExtensions: ["js", "jsx", "mdx", "tsx", "ts"],
-//   typescript: {
-//     // !! WARN !!
-//     // Dangerously allow production builds to successfully complete even if
-//     // your project has type errors.
-//     // !! WARN !!
-//     ignoreBuildErrors: true,
-//   },
-//   future: {
-//     webpack5: true,
-//   },
-//   exportPathMap,
-//   trailingSlash: true,
-// });
-
 module.exports = async (phase, { defaultConfig }) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const headingLinkPlugin = await require('./src/plugins/headings.tsx');
@@ -37,7 +17,6 @@ module.exports = async (phase, { defaultConfig }) => {
   const codeBlockPlugin = await require('./src/plugins/code-block.tsx');
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const importPlugin = await require('./src/plugins/import.tsx');
-
 
   const withMDX = require('@next/mdx')({
     extension: /\.mdx$/,
